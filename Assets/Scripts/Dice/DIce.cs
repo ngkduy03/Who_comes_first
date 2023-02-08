@@ -8,11 +8,13 @@ public class DIce : MonoBehaviour
     public static Vector3 diceVelocity;
     bool canToss = true;
     public static bool firstToss = true;
+    private StandingPoint standingPoint;
     private void Awake() {
-//            diceVelocity = myBody.velocity;
+
     }
     void Start()
     {
+        standingPoint = GetComponent<StandingPoint>();
         myBody = GetComponent<Rigidbody>();
         myBody.useGravity = false;
     }
@@ -51,12 +53,9 @@ public class DIce : MonoBehaviour
     }
     void SetNextPosValue()
     {
-            PlayerMovement.nextPos += DiceValue.diceValue;
-            canToss = true;
-            Debug.Log(PlayerMovement.nextPos.ToString() +" "+ DiceValue.diceValue.ToString());
+        PlayerMovement.nextPos += DiceValue.diceValue;
+        PlayerMovement.nextPos= Mathf.Min(PlayerMovement.nextPos,20);
+        canToss = true;
     }
-    // private void OnTriggerExit(Collider other) {
-    //     DiceValue.diceValue=0;
-        
-    // }
 }
+    

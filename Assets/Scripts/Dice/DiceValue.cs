@@ -47,6 +47,5 @@ public class DiceValue : MonoBehaviour
                 break;
         }
     }
-    Debug.Log(diceValue);
   }
 }

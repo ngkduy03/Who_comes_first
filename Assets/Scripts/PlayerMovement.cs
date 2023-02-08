@@ -24,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     
     void HandleMovement()
     {
-        if(nextPos > standingPoint.ChildCount())
-            return;
-    
         if(currentPos <= nextPos)
         {
             dir = (standingPoint.GetChildTransform(currentPos).position-transform.position).normalized;
@@ -38,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
                 currentPos++;
             }
         }
+        Debug.Log(nextPos);
     }
     
 }
