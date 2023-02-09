@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] GameObject token;
-    private string playerName;
-    private int rank;
-    private int piority;
+    [SerializeField] public GameObject token;
+    public string playerName;
+    public int rank;
+    public int piority;
 
 
 }

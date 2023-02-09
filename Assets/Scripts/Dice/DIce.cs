@@ -38,10 +38,6 @@ public class DIce : MonoBehaviour
                 myBody.AddForce(new Vector3(0,1,0)*130);
                 myBody.AddTorque(dirX,dirY,dirZ);
                 canToss = false;
-                if(!firstToss)
-                {
-                }
-                // firstToss = false;
             }
         }
     }

@@ -8,18 +8,19 @@ public class PlayerMovement : MonoBehaviour
     private int currentPos = 0;
     public static int nextPos = 0;
     private Vector3 dir;
-    
+    public static bool areUThere = false;
+
     // Update is called once per frame
     void Update()
     {
-        // RollDice();
     }
     private void FixedUpdate()
     {
-    //    if(DIce.firstToss)
-    //         return;
        HandleMovement(); 
-        
+       if(Vector3.Distance(transform.position,standingPoint.GetChildTransform(nextPos).position)<0.1f)
+        {
+            areUThere = true;
+        } 
     }
     
     void HandleMovement()
@@ -35,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
                 currentPos++;
             }
         }
-        Debug.Log(nextPos);
     }
     
 }

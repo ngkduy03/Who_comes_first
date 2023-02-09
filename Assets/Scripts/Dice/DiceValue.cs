@@ -9,17 +9,8 @@ public class DiceValue : MonoBehaviour
   int a;
   void FixedUpdate(){
     diceVelocity = DIce.diceVelocity;
-    // Debug.Log(diceVelocity);
-  } 
-  private void OnTriggerStay(Collider other) {
-    // if(DIce.firstToss == true)
-    // {
-    //     diceValue = 0;
-    //     return ;
-    // }
-    if(/*Mathf.Approximately(1f,diceVelocity.sqrMagnitude)*/true)
-    {
-        
+} 
+    private void OnTriggerStay(Collider other) {
         switch(other.gameObject.name)
         {
             case "SIde1":
@@ -45,7 +36,6 @@ public class DiceValue : MonoBehaviour
             case "SIde6":
                 diceValue = 6;
                 break;
-        }
     }
   }
 }
