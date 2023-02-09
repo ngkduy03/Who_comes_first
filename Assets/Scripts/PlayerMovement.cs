@@ -6,21 +6,17 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] StandingPoint standingPoint;
     private int currentPos = 0;
-    public static int nextPos = 0;
+    public int nextPos = 0;
     private Vector3 dir;
-    public static bool areUThere = false;
 
     // Update is called once per frame
     void Update()
     {
+        
     }
     private void FixedUpdate()
     {
        HandleMovement(); 
-       if(Vector3.Distance(transform.position,standingPoint.GetChildTransform(nextPos).position)<0.1f)
-        {
-            areUThere = true;
-        } 
     }
     
     void HandleMovement()
@@ -35,7 +31,16 @@ public class PlayerMovement : MonoBehaviour
             else{
                 currentPos++;
             }
+            DIce.canToss = false;
         }
+        else
+        {
+            DIce.canToss = true;
+        }
+    }
+    public bool AreUThere()
+    {
+        return Vector3.Distance(transform.position, standingPoint.GetChildTransform(nextPos).position) < 0.1f;
     }
     
 }

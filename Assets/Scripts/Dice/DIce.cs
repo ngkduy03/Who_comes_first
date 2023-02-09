@@ -6,10 +6,11 @@ public class DIce : MonoBehaviour
 {
     static Rigidbody myBody;
     public static Vector3 diceVelocity;
-    bool canToss = true;
-    public static bool firstToss = true;
+    public static bool canToss = true;
     private StandingPoint standingPoint;
-    private void Awake() {
+    [SerializeField] private GameController gameController;
+    private void Awake()
+    {
 
     }
     void Start()
@@ -26,32 +27,38 @@ public class DIce : MonoBehaviour
     }
     void TossDice()
     {
-        if(canToss)
+        if (canToss)
         {
             diceVelocity = myBody.velocity;
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
+                gameController.PlayerTurn();
+                if(gameController.GetCurrentToken().AreUThere() == false)
+                    return;
+
                 myBody.useGravity = true;
-                float dirX = Random.Range(0,500);
-                float dirY = Random.Range(0,500);
-                float dirZ = Random.Range(0,500);
-                myBody.AddForce(new Vector3(0,1,0)*130);
-                myBody.AddTorque(dirX,dirY,dirZ);
-                canToss = false;
+                float dirX = Random.Range(0, 500);
+                float dirY = Random.Range(0, 500);
+                float dirZ = Random.Range(0, 500);
+                myBody.AddForce(new Vector3(0, 1, 0) * 130);
+                myBody.AddTorque(dirX, dirY, dirZ);
+
             }
         }
     }
-    private void OnTriggerEnter(Collider other) {
-        
-        if(other.GetComponent<Collider>().CompareTag("plane")){
-           Invoke(nameof(SetNextPosValue),0.01f); 
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.GetComponent<Collider>().CompareTag("plane"))
+        {
+            Invoke(nameof(SetNextPosValue), 0.01f);
         }
     }
     void SetNextPosValue()
     {
-        PlayerMovement.nextPos += DiceValue.diceValue;
-        PlayerMovement.nextPos= Mathf.Min(PlayerMovement.nextPos,20);
-        canToss = true;
+        gameController.GetCurrentToken().nextPos += DiceValue.diceValue;
+        gameController.GetCurrentToken().nextPos = Mathf.Min(gameController.GetCurrentToken().nextPos, 20);
+        gameController.count++;
     }
 }
-    
+

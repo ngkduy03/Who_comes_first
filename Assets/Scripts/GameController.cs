@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     List<Player> players = new List<Player>();
     [SerializeField] GameObject pList;
     [SerializeField] PlayerMovement playerMovement;
-    int count = 0;
+    public int count = 0;
     void Start()
     {
         foreach (Transform tr in pList.GetComponentInChildren<Transform>())
@@ -16,18 +16,13 @@ public class GameController : MonoBehaviour
         }
         SetPlayerPiority();
 
-        // foreach(Player player in players)
-        // {
-        //     Debug.Log(player);
-        // }   
-
     }
     void Update()
     {
-        if (PlayerMovement.areUThere)
-        {
-            PlayerTurn();
-        }
+        // if (PlayerMovement.areUThere)
+        // {
+        //     PlayerTurn();
+        // }
     }
     void SetPlayerPiority()
     {
@@ -36,24 +31,26 @@ public class GameController : MonoBehaviour
             player.piority = Random.Range(0, 9);
         }
         players.Sort((a, b) => a.piority.CompareTo(b.piority));
-        Debug.Log(players);
     }
-    void PlayerTurn()
+    public void PlayerTurn()
     {
         count %= players.Count;
         for (int i = 0; i < players.Count; i++)
         {
+            Debug.Log(i);
             if (i != count)
             {
                 players[i].token.GetComponent<PlayerMovement>().enabled = false;
             }
             else
             {
-
                 players[i].token.GetComponent<PlayerMovement>().enabled = true;
             }
         }
-        count++;
-        PlayerMovement.areUThere = false;
+    }
+    public PlayerMovement GetCurrentToken()
+    {
+        Debug.Log(count);
+        return players[count].token.GetComponent<PlayerMovement>();
     }
 }
