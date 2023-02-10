@@ -14,27 +14,27 @@ public class DiceValue : MonoBehaviour
         switch(other.gameObject.name)
         {
             case "SIde1":
-                diceValue = 1;
+                diceValue = 11;
                 break;
             
             case "SIde2":
-                diceValue = 2;
+                diceValue = 12;
                 break;
 
             case "SIde3":
-                diceValue = 3;
+                diceValue = 13;
                 break;
 
             case "SIde4":
-                diceValue = 4;
+                diceValue = 14;
                 break;
 
             case "SIde5":
-                diceValue = 5;
+                diceValue = 15;
                 break;
             
             case "SIde6":
-                diceValue = 6;
+                diceValue = 16;
                 break;
     }
   }

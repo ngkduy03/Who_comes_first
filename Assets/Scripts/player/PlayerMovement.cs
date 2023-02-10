@@ -8,12 +8,6 @@ public class PlayerMovement : MonoBehaviour
     private int currentPos = 0;
     public int nextPos = 0;
     private Vector3 dir;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
        HandleMovement(); 
@@ -42,5 +36,4 @@ public class PlayerMovement : MonoBehaviour
     {
         return Vector3.Distance(transform.position, standingPoint.GetChildTransform(nextPos).position) < 0.1f;
     }
-    
 }

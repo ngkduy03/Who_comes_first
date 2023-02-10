@@ -9,6 +9,7 @@ public class DIce : MonoBehaviour
     public static bool canToss = true;
     private StandingPoint standingPoint;
     [SerializeField] private GameController gameController;
+    public static bool canCount = true;
     private void Awake()
     {
 
@@ -33,7 +34,7 @@ public class DIce : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 gameController.PlayerTurn();
-                if(gameController.GetCurrentToken().AreUThere() == false)
+                if (gameController.GetCurrentToken().AreUThere() == false)
                     return;
 
                 myBody.useGravity = true;
@@ -42,6 +43,8 @@ public class DIce : MonoBehaviour
                 float dirZ = Random.Range(0, 500);
                 myBody.AddForce(new Vector3(0, 1, 0) * 130);
                 myBody.AddTorque(dirX, dirY, dirZ);
+                // canToss = false;
+                canCount = true;
 
             }
         }

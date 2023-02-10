@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public string playerName;
     public int rank;
     public int piority;
+    public int turns = 0;
 
 
 }
