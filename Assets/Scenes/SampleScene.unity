@@ -1770,8 +1770,8 @@ RectTransform:
   - {fileID: 1842154570}
   - {fileID: 1088497350}
   - {fileID: 810702908}
-  - {fileID: 1510918581}
   - {fileID: 1275262399}
+  - {fileID: 1510918581}
   - {fileID: 540667490}
   - {fileID: 1454159381}
   m_Father: {fileID: 26590661}
@@ -1945,7 +1945,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398750597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2435,7 +2435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365, y: -298}
+  m_AnchoredPosition: {x: -310, y: -307}
   m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540667491
@@ -3133,7 +3133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -448, y: 191}
+  m_AnchoredPosition: {x: -448, y: 209}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810702909
@@ -3357,9 +3357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'txt
-
-'
+  m_text: 4th
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3674,7 +3672,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934750689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4101,9 +4099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'txt
-
-'
+  m_text: 3rd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5480,6 +5476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingPoint: {fileID: 1652335460}
+  player: {fileID: 1328665474}
+  uIController: {fileID: 2118269394}
   nextPos: 0
 --- !u!1 &1275262398
 GameObject:
@@ -5516,11 +5514,11 @@ RectTransform:
   - {fileID: 1080697917}
   - {fileID: 1942298695}
   m_Father: {fileID: 356603318}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33, y: 191}
+  m_AnchoredPosition: {x: 33, y: 209}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275262400
@@ -5678,9 +5676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'txt
-
-'
+  m_text: 2nd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5772,6 +5768,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115095481080160494, guid: fb165f9ed5ee3134c81db36c9e4b68be, type: 3}
+      propertyPath: uIController
+      value: 
+      objectReference: {fileID: 2118269394}
     - target: {fileID: 1115095481080160494, guid: fb165f9ed5ee3134c81db36c9e4b68be, type: 3}
       propertyPath: standingPoint
       value: 
@@ -6174,7 +6174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243, y: -298}
+  m_AnchoredPosition: {x: 298, y: -307}
   m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454159382
@@ -6601,7 +6601,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492165168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6792,11 +6792,11 @@ RectTransform:
   - {fileID: 1884493102}
   - {fileID: 1574462407}
   m_Father: {fileID: 356603318}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: 191}
+  m_AnchoredPosition: {x: 425, y: 209}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510918582
@@ -7535,9 +7535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'txt
-
-'
+  m_text: 1st
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8002,6 +8000,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4651683671592439087, guid: d1c77d854381efa42b00f9894c8e2193, type: 3}
+      propertyPath: uIController
+      value: 
+      objectReference: {fileID: 2118269394}
     - target: {fileID: 4651683671592439087, guid: d1c77d854381efa42b00f9894c8e2193, type: 3}
       propertyPath: standingPoint
       value: 
@@ -9303,15 +9305,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputNames:
-  - {fileID: 181120170}
-  - {fileID: 398750597}
-  - {fileID: 934750689}
-  - {fileID: 1492165168}
+  - {fileID: 181120172}
+  - {fileID: 398750599}
+  - {fileID: 934750691}
+  - {fileID: 1492165169}
   players:
   - {fileID: 536760706}
   - {fileID: 1328665472}
   - {fileID: 927891089}
   - {fileID: 525059880}
+  playerNames:
+  - {fileID: 379531325}
+  - {fileID: 2042266509}
+  - {fileID: 1080697918}
+  - {fileID: 1942298696}
+  playerTurns:
+  - {fileID: 1146504365}
+  - {fileID: 522382838}
+  - {fileID: 1884493103}
+  - {fileID: 1574462408}
+  enterNameCanvas: {fileID: 1087985237}
+  scoreBoard: {fileID: 356603317}
 --- !u!4 &2118269395
 Transform:
   m_ObjectHideFlags: 0
@@ -9544,6 +9558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingPoint: {fileID: 1652335460}
+  player: {fileID: 536760707}
+  uIController: {fileID: 2118269394}
   nextPos: 0
 --- !u!1001 &4923703771849190914
 PrefabInstance:

@@ -35,14 +35,14 @@ public class GameController : MonoBehaviour
         count %= players.Count;
         for (int i = 0; i < players.Count; i++)
         {
-            if(Vector3.Distance(
-                            players[i].token.transform.position,
-                            standingPoint.GetChildTransform(standingPoint.ChildCount() - 1).position
-                        ) < 0.01f)
-            {
-                Debug.Log(i);
-                continue;   //! nhớ quay lại để làm token tới nơi ko cần toss dice!!!
-            }
+            // if(Vector3.Distance(
+            //                 players[i].token.transform.position,
+            //                 standingPoint.GetChildTransform(standingPoint.ChildCount() - 1).position
+            //             ) < 0.01f)
+            // {
+            //     Debug.Log(i);
+            //     continue;   //! nhớ quay lại để làm token tới nơi ko cần toss dice!!!
+            // }
                 
             if (i != count)
             {
