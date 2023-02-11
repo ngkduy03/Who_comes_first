@@ -12,7 +12,8 @@ public class DIce : MonoBehaviour
     public static bool canCount = true;
     private void Awake()
     {
-
+        canToss = true;
+        canCount = true;
     }
     void Start()
     {
@@ -28,22 +29,24 @@ public class DIce : MonoBehaviour
     }
     void TossDice()
     {
+        if (PlayerMovement.gameOverCheck == 3)
+        {
+            return;
+        }
         if (canToss)
         {
             diceVelocity = myBody.velocity;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && Mathf.Approximately(diceVelocity.sqrMagnitude, 0f))
             {
-                gameController.PlayerTurn();
                 if (gameController.GetCurrentToken().AreUThere() == false)
                     return;
-
                 myBody.useGravity = true;
-                float dirX = Random.Range(0, 500);
-                float dirY = Random.Range(0, 500);
-                float dirZ = Random.Range(0, 500);
-                myBody.AddForce(new Vector3(0, 1, 0) * 130);
+                float dirX = Random.Range(100, 300);
+                float dirY = Random.Range(100, 300);
+                float dirZ = Random.Range(100, 300);
+                myBody.velocity = Vector3.up * 3f;
                 myBody.AddTorque(dirX, dirY, dirZ);
-                // canToss = false;
+                canToss = false;
                 canCount = true;
 
             }
@@ -54,13 +57,30 @@ public class DIce : MonoBehaviour
 
         if (other.GetComponent<Collider>().CompareTag("plane"))
         {
+            myBody.velocity = Vector3.zero;
+            myBody.angularVelocity = Vector3.zero;
             Invoke(nameof(SetNextPosValue), 0.01f);
+            canToss = true;
         }
     }
+
+    public bool _Debug = false;
     void SetNextPosValue()
     {
+        // if(PlayerMovement.gameOverCheck == 3)
+        //     return;
+        while (gameController.GetCurrentToken().isFinish)
+        {
+            gameController.count++;
+        }
+        gameController.PlayerTurn();
         gameController.GetCurrentToken().nextPos += DiceValue.diceValue;
-        gameController.GetCurrentToken().nextPos = Mathf.Min(gameController.GetCurrentToken().nextPos, 20);
+        int nexPost = Mathf.Min(gameController.GetCurrentToken().nextPos, 20);
+        if (_Debug)
+        {
+            nexPost = 20;
+        }
+        gameController.GetCurrentToken().nextPos = nexPost;
         gameController.count++;
     }
 }

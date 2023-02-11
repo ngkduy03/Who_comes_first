@@ -35,15 +35,6 @@ public class GameController : MonoBehaviour
         count %= players.Count;
         for (int i = 0; i < players.Count; i++)
         {
-            // if(Vector3.Distance(
-            //                 players[i].token.transform.position,
-            //                 standingPoint.GetChildTransform(standingPoint.ChildCount() - 1).position
-            //             ) < 0.01f)
-            // {
-            //     Debug.Log(i);
-            //     continue;   //! nhớ quay lại để làm token tới nơi ko cần toss dice!!!
-            // }
-                
             if (i != count)
             {
                 players[i].token.GetComponent<PlayerMovement>().enabled = false;
@@ -51,15 +42,11 @@ public class GameController : MonoBehaviour
             else
             {
                 players[i].token.GetComponent<PlayerMovement>().enabled = true;
-                if(DIce.canCount)
+                
+                // if(players[i].token.GetComponent<PlayerMovement>().isFinish == true)
+                //     return;
+                if (DIce.canCount)
                 {
-
-                    // if (Vector3.Distance(
-                    //         players[i].token.transform.position,
-                    //         standingPoint.GetChildTransform(standingPoint.ChildCount() - 1).position
-                    //     ) < 0.01f
-                    // )
-                    //     return;
                     players[i].turns++;
                     DIce.canCount = false;
                 }
@@ -68,6 +55,7 @@ public class GameController : MonoBehaviour
     }
     public PlayerMovement GetCurrentToken()
     {
-        return players[count].token.GetComponent<PlayerMovement>();
+        Debug.Log(count);
+        return players[count % players.Count].token.GetComponent<PlayerMovement>();
     }
 }

@@ -7,35 +7,46 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] StandingPoint standingPoint;
     [SerializeField] Player player;
     [SerializeField] UIController uIController;
+
+    [SerializeField] GameController gameController;
     private int currentPos = 0;
     public int nextPos = 0;
     private Vector3 dir;
-    private bool isFinish = false;
-    public static int gameOverCheck= -1;
+    public bool isFinish = false;
+    public static int gameOverCheck = -1;
 
+    private void Awake()
+    {
+        gameOverCheck = -1;
+    }
     private void FixedUpdate()
     {
         WinCheck();
-        HandleMovement(); 
+        HandleMovement();
     }
-    
+
     void HandleMovement()
     {
-        if(currentPos <= nextPos)
+        if (currentPos <= nextPos)
         {
-            dir = (standingPoint.GetChildTransform(currentPos).position-transform.position).normalized;
-            if(Vector3.Distance(standingPoint.GetChildTransform(currentPos).position,transform.position)>0.001f)
+            dir = (standingPoint.GetChildTransform(currentPos).position - transform.position).normalized;
+            if (Vector3.Distance(standingPoint.GetChildTransform(currentPos).position, transform.position) > 0.001f)
             {
-                transform.position += dir*0.1f*Time.deltaTime;
+                transform.position += dir * 0.1f * Time.deltaTime;
+                // transform.position = standingPoint.GetChildTransform(currentPos).position;
             }
-            else{
+            else
+            {
                 currentPos++;
             }
             DIce.canToss = false;
         }
         else
         {
-            DIce.canToss = true;
+            if (nextPos != 0)
+            {
+                DIce.canToss = true;
+            }
         }
     }
     public bool AreUThere()
@@ -44,15 +55,15 @@ public class PlayerMovement : MonoBehaviour
     }
     void WinCheck()
     {
-        if(isFinish)
+        if (isFinish)
             return;
-        if(Vector3.Distance(
-            transform.position,standingPoint.
-            GetChildTransform(standingPoint.ChildCount()-1).position)
-            <0.01f)
+        if (Vector3.Distance(
+            transform.position, standingPoint.
+            GetChildTransform(standingPoint.ChildCount() - 1).position)
+            < 0.01f)
         {
             gameOverCheck++;
-            uIController.GetPlayerScoreBoardName(player.playerName,gameOverCheck);
+            uIController.GetPlayerScoreBoardName(player.playerName, gameOverCheck);
             uIController.GetPlayerScoreBoardTurn(player.turns, gameOverCheck);
             isFinish = true;
         }

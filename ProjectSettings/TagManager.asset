@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - plane
+  - wall
+  - NoTossZone
   layers:
   - Default
   - TransparentFX
