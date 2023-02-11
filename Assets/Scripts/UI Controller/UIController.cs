@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     private static List<string> StaticNames = new List<string>();
     public GameObject enterNameCanvas;
     public GameObject scoreBoard;
+    public GameObject GameUI;
     private bool endGameOnce = false;
     [SerializeField] GameObject dice;
     private void Start()
@@ -21,6 +22,7 @@ public class UIController : MonoBehaviour
         scoreBoard.SetActive(false);
         enterNameCanvas.SetActive(StaticNames.Count == 0);
         dice.SetActive(StaticNames.Count > 0);
+        GameUI.SetActive(StaticNames.Count > 0);
         int i = 0;
         foreach (var inputName in StaticNames)
         {
@@ -43,6 +45,7 @@ public class UIController : MonoBehaviour
         }
         enterNameCanvas.SetActive(false);
         dice.SetActive(true);
+        GameUI.SetActive(true);
     }
     public void GetPlayerScoreBoardName(string a, int i)
     {
@@ -62,6 +65,7 @@ public class UIController : MonoBehaviour
     }
     public void PlayAgain()
     {
+        GameUI.SetActive(true);
         scoreBoard.SetActive(false);
         dice.SetActive(true);
         SceneManager.LoadScene("Bootloader", LoadSceneMode.Single);
@@ -70,6 +74,7 @@ public class UIController : MonoBehaviour
     public void NewGame()
     {
         StaticNames.Clear();
+        GameUI.SetActive(false);
         PlayAgain();
     }
 }
