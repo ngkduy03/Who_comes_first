@@ -57,7 +57,7 @@ public class UIController : MonoBehaviour
     }
     public void GameOver()
     {
-        if (PlayerMovement.gameOverCheck == 3 )//&& !endGameOnce)
+        if (PlayerMovement.gameOverCheck == 3)//&& !endGameOnce)
         {
             // endGameOnce = true;
             scoreBoard.SetActive(true);
