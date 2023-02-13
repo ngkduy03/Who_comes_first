@@ -1,12 +1,12 @@
 # Who_comes_firs
 ## Description:
-This is Table top game for kid which is for four players to play. At the start of the, it will random the order of the player who can go first. 
+This is Table top game for kid which is for four players to play. At the start of the game, it will random the order of the player who can go first. 
 
 
-then every one will take turn to roll a dice which will be the step of player can go. 
+Then every one will take turn to roll a dice which will be the step of player can go. 
 
 
-Who reach to the finish line fít will be the winner at the frist play and so on.
+Who reach to the finish line first will be the winner at the frist play and so on.
 
 
 ## How to play:
